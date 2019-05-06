@@ -1,20 +1,36 @@
 <h1>Articles Index page!</h1>
 
 <% if @all_articles.present? %>
-  <% @all_articles.each do |article| %>
-    <ul>
-      <li>
-        <div>
-          <p>id: <%= article.id %></p>
-          <h5>Title: <%= article.title %></h5>
-          <p>Description: <%= article.description %></p>
-          <p>Created At: <%= article.created_at %></p>
-          <p>Updated At: <%= article.updated_at %></p>
-          <%= link_to "view", article_path(article.id) %>
-        </div>
-      </li>
-    </ul>
-  <% end %>
+  <div>
+    <%= link_to "Create a new article", new_article_path %>
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @all_articles.each do |article| %>
+          <tr>
+            <td><%= article.id %></td>
+            <td><%= article.title %></td>
+            <td><%= article.description %></td>
+            <td><%= article.created_at %></td>
+            <td><%= article.updated_at %></td>
+            <td>
+              <%= link_to "Edit", edit_article_path(article) %>
+              <%= link_to "Show", article_path(article) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% else %>
   <h4>No Articles found!</h4>
 <% end %>
