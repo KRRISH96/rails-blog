@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <%= render "layouts/navigation" %>
+
     <%= yield %>
 
     <% flash.each do |name, msg| %>
