@@ -1,5 +1,6 @@
 <h1>Articles Index page!</h1>
 <%= link_to 'Home', root_path %>
+<%= link_to 'Create New Article', new_article_path %>
 
 <% if @all_articles.present? %>
 <% @all_articles.each do |article| %>
