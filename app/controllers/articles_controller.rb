@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = User.first
     if @article.save
-      flash[:notice] = "Article was successfully saved!"
+      flash[:success] = "Article was successfully saved!"
       redirect_to article_path(@article)
     else
       flash[:error] = "Article was not saved!"
@@ -28,8 +28,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article.user = User.last
     if @article.update(article_params)
-      flash[:notice] = "Article was updated successfully!"
+      flash[:success] = "Article was updated successfully!"
       redirect_to article_path(@article)
     else
       flash[:error] = "Article not updated!"
@@ -39,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:notice] = "Article was deleted!"
+    flash[:success] = "Article was deleted!"
     redirect_to articles_path
   end
 
