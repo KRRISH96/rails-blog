@@ -6,3 +6,8 @@ Follwed from [How to Build a Blog with Ruby on Rails](https://medium.com/@dealle
 
 Thanks to [Narasimha Reddy](https://github.com/NarasimhaReddyY) for suggesting this blog and clarifying my doubts.
 
+### Install
+```bundle install```
+
+### Development
+```rails s```
